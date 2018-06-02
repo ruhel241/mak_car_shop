@@ -78,4 +78,22 @@
 
 
 
+<style type="text/css">
+    .car_widget_item {
+        margin-bottom: 10px;
+    }
+
+    /*.car_widget_item label {
+        margin-bottom: 7px;
+        display: block;
+    }*/
+
+    .car_widget_item h4 {
+        margin: 10px 0px 0px;
+    }
+
+    .car_widget_item p {
+        margin: 5px 0px !important;
+    }
+</style> 
 

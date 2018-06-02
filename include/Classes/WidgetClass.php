@@ -17,8 +17,6 @@ class WidgetClass extends \WP_Widget
 	}
 
 
-
-
 	public function widget($args, $instance)
 	{
 		$title = apply_filters('car_widget_title', $instance['title'] );
@@ -27,18 +25,17 @@ class WidgetClass extends \WP_Widget
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		$disableModal = ! empty( $instance['_car_disable_modal_widget'] );
-
-
-		$shortcode = "[mrk_carshop display='" . $instance['_car_display_widget']
-		         . "' per_grid='1' hide_price=" . $instance['_car_hide_price'] . "
-		         limit='" . $instance['_car_limit_widget'] . "' disable_modal='" . $disableModal
-		         . "'meal_type='" . implode( ',', $instance['_car_brand_widget'] )
-		         . "' dish_type='" . implode( ',', $instance['_car_model_widget'] )
-		         . "' location='" . implode( ',', $instance['_car_made_widget'] ) . "']";
+		$_car_disable_modal_widget = ! empty( $instance['_car_disable_modal_widget'] );
+		$_car_hide_price = ! empty( $instance['_car_hide_price'] );
+		$shortcode = "[mrk_carshop display= " .$instance['_car_display_widget']. 
+			         "hide_price=".$_car_hide_price.
+			         "limit=".$instance['_car_limit_widget'].
+			         "disable_modal=".$_car_disable_modal_widget.
+			         "brand=". implode( ',', $instance['_car_brand_widget'] ).
+			         "model=".implode( ',', $instance['_car_model_widget'] ).
+			         "made=".implode( ',', $instance['_car_made_widget'] )."]";
 
 		echo do_shortcode( $shortcode );
-
 		echo $args['after_widget'];
 	}
 
@@ -55,8 +52,6 @@ class WidgetClass extends \WP_Widget
 		$_car_disable_modal_widget = ! empty( $instance['_car_disable_modal_widget'] );
 		$_car_hide_price           = ! empty( $instance['_car_hide_price'] );
 
-
-
 		$displayTypes = HelperClass::getCarDisplayTypes(); 
 		$brandTypes    = HelperClass::getCarTermsFormatted( array(
 			'taxonomy'   => PostTypeClass::$carBrandName,
@@ -71,10 +66,7 @@ class WidgetClass extends \WP_Widget
 			'hide_empty' => false,
 		) );
 
-
-
-
-		include MRK_Car_Shop_PLUGIN_DIR_PATH . "include/templates/widgets/car_shop_widget.php";
+	include MRK_Car_Shop_PLUGIN_DIR_PATH . "include/templates/widgets/car_shop_widget.php";
 
 	}
 

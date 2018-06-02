@@ -70,7 +70,13 @@ class RLCarShop
 		$car_add_meta = new MRKCarShop\Classes\MetaBoxClass();
 		add_action('add_meta_boxes_'.$postTypeName, array($car_add_meta, 'addMetaBoxes') );
 		add_action('save_post_'.$postTypeName, array($car_add_meta,'saveMeta') );
-	
+
+		add_action( 'current_screen', function ( $current_screen ) use ( $postTypeName ) {
+			if ( $current_screen->post_type != $postTypeName ) {
+				\MRKCarShop\Classes\TinyMceClass::registerButton();
+			}
+		} );
+
 	}
 
 
