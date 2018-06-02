@@ -1,0 +1,20 @@
+.ninja_mrk_car_meta_box{
+	overflow: hidden;
+    width: 100%;
+    display: block;
+}
+  
+.mrk_root_meta_field {
+    margin: 0 0 12px;
+}
+
+.mrk_root_meta_field .mrk_meta_label{
+	width: 25%;
+	float: left;
+	font-weight: 600;
+}
+
+.mrk_meta_field_more_info {
+	width: 75%;
+    float: left;
+}
