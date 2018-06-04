@@ -1,0 +1,83 @@
+/* common Styles */
+
+
+.car_shop_group {
+   display: block;
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+}
+
+.car_shop_group .car-item {
+  display: block;
+  overflow: hidden;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: solid 1px silver;
+  border-radius: 5px;
+}
+
+.car_shop_group .car-item:hover{
+  cursor: pointer;
+  background-color: #EFEFEF; 
+}
+
+.car_shop_group .car_image {
+  width: 30%;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.car_shop_group .car_image img {
+  max-width: 100%;
+}
+
+.car_shop_group .car_content {
+  width: 70%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-left: 15px;
+}
+.car_shop_group .car_content h4  {
+   padding: 0;
+   margin: 0;
+}
+.car_shop_group .car_content p {
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+    /*font-size: 18px;*/
+    color: #767676;
+}
+
+
+
+
+
+
+/*
+.ninja_res_menu_group {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+  .res_item_modal {
+    cursor: pointer;
+  }
+  .res-item {
+    padding: 5px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 10px;
+    &:hover {
+      background-color: #f5f4eb;
+      border-radius: 5px;
+    }
+    h3, h4, h2, p {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+}
+*/

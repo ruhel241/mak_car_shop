@@ -1,13 +1,9 @@
 (function () {
     const carShopModalApp = {
-        insertDom() {
-            jQuery('body').append(`
-                <div style="display: none;" class="car_shop_shortcode_builder_pop_up" id="car_shop_pop_up">
-                
+        insertDom() { 
+            jQuery('body').append(`<div style="display: none;" class="car_shop_shortcode_builder_pop_up" id="car_shop_pop_up"> 
 
-                </div>
-
-            `);
+            </div>`);
         },
         showModal(editor) {
             window.currentCarEditor = editor;

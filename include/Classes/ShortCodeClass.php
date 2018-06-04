@@ -47,6 +47,28 @@ class ShortCodeClass
 	}
 
 
+
+
+
+	public static function saveFlagOnShortCode( $post_id ) {
+		if ( isset( $_POST['post_content'] ) ) {
+			$post_content = $_POST['post_content'];
+		} else {
+			$post         = get_post( $post_id );
+			$post_content = $post->post_content;
+		}
+		if ( has_shortcode( $post_content, 'mrk_carshop' ) ) {
+			update_post_meta( $post_id, '_has_mrk_carshop_shortcode', 1 );
+		} else if ( get_post_meta( $post_id, '_has_mrk_carshop_shortcode', true ) ) {
+			update_post_meta( $post_id, '_has_mrk_carshop_shortcode', 0 );
+		}
+	}
+
+
+
+
+
+
 	
 }
 
