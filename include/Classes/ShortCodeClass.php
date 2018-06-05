@@ -20,11 +20,14 @@ class ShortCodeClass
 			'made' 		=> false,
 			'relation'  => 'OR',
 			'offset'    => 0,
+			'per_grid'  => 2,
+			'excerpt_length' => null
 		));
 
 		$attributes = shortcode_atts($defaults, $atts);
 
 		$attributes['view_file']     = self::getViewNameByDisplay( $attributes['display'] );
+		$attributes['excerptLength'] = self::getExcerptLength( $attributes );
 		$attributes                  = apply_filters( 'car_shop_shortcode_atts', $attributes );
 		
 		return carShopRenderItems( $attributes );
@@ -47,7 +50,16 @@ class ShortCodeClass
 	}
 
 
+	public static function getExcerptLength( $attributes ) {
+		if ( $attributes['excerpt_length'] ) {
+			return intval( $attributes['excerpt_length'] );
+		}
+		if ( $attributes['display'] == 'grid' ) {
+			return 90 / $attributes['per_grid'];
+		}
 
+		return 90;
+	}
 
 
 	public static function saveFlagOnShortCode( $post_id ) {

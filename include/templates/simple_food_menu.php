@@ -2,5 +2,5 @@
 
 
 foreach ($cars as $car) {
-	echo $car->post_content;
+	echo carShopWordExcerpt($car, $excerptLength, 'simple' )."<br/>"; 
 }

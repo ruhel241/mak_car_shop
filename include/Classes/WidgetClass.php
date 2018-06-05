@@ -27,7 +27,7 @@ class WidgetClass extends \WP_Widget
 
 		$_car_disable_modal_widget = ! empty( $instance['_car_disable_modal_widget'] );
 		$_car_hide_price = ! empty( $instance['_car_hide_price'] );
-		$shortcode = "[mrk_carshop display= " .$instance['_car_display_widget']. 
+		$shortcode = "[mrk_carshop excerpt_length = 20  display= " .$instance['_car_display_widget']. 
 			         "hide_price=".$_car_hide_price.
 			         "limit=".$instance['_car_limit_widget'].
 			         "disable_modal=".$_car_disable_modal_widget.

@@ -1,4 +1,4 @@
-/* common Styles */
+ common Styles */
 
 
 .car_shop_group {
@@ -53,7 +53,19 @@
 
 
 
+/*grid*/
+.car_grid_item {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
 
+.grid_image{
+  float: left;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
 
 
 /*
@@ -80,4 +92,3 @@
     }
   }
 }
-*/
