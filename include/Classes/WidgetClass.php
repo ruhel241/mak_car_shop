@@ -20,20 +20,22 @@ class WidgetClass extends \WP_Widget
 	public function widget($args, $instance)
 	{
 		$title = apply_filters('car_widget_title', $instance['title'] );
+
+		$_car_display_widget   = ! empty( $instance['_car_display_widget'] ) ? $instance['_car_display_widget'] : "";
+		$_car_brand_widget 	   = ! empty( $instance['_car_brand_widget'] ) ? $instance['_car_brand_widget'] : [];
+		$_car_model_widget 	   = ! empty( $instance['_car_model_widget'] ) ? $instance['_car_model_widget'] : [];
+		$_car_made_widget  	   = ! empty( $instance['_car_made_widget'] ) ? $instance['_car_made_widget'] : [];
+		$_car_limit_widget     = ! empty( $instance['_car_limit_widget'] ) ? $instance['_car_limit_widget'] : 5;
+		$_car_hide_price       = ! empty( $instance['_car_hide_price'] ) ? $instance['_car_hide_price'] : "";
+		$_car_disable_modal_widget = ! empty( $instance['_car_disable_modal_widget'] ) ? $instance['_car_disable_modal_widget'] : "";
+		
+
 		echo $args['before_widget'];
 		if( ! empty( $title ) ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		$_car_disable_modal_widget = ! empty( $instance['_car_disable_modal_widget'] );
-		$_car_hide_price = ! empty( $instance['_car_hide_price'] );
-		$shortcode = "[mrk_carshop excerpt_length = 20  display= " .$instance['_car_display_widget']. 
-			         "hide_price=".$_car_hide_price.
-			         "limit=".$instance['_car_limit_widget'].
-			         "disable_modal=".$_car_disable_modal_widget.
-			         "brand=". implode( ',', $instance['_car_brand_widget'] ).
-			         "model=".implode( ',', $instance['_car_model_widget'] ).
-			         "made=".implode( ',', $instance['_car_made_widget'] )."]";
+		$shortcode = "[mrk_carshop display='".$_car_display_widget."' brand='".implode(',', $_car_brand_widget)."' model='".implode(',', $_car_model_widget)."' made='".implode(',', $_car_made_widget)."' limit='".$_car_limit_widget."' hide_price='".$_car_hide_price."' disable_modal='".$_car_disable_modal_widget."' excerpt_length = 20 ]";
 
 		echo do_shortcode( $shortcode );
 		echo $args['after_widget'];

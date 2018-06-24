@@ -78,14 +78,14 @@ class HelperClass
 			'default'        => array(
 				'label' => 'Default'
 			),
-			'center_aligned' => array(
-				'label' => 'Center Aligned'
+			'center' => array(
+				'label' => 'Center Dispaly'
 			),
 			'simple'         => array(
-				'label' => 'Simple Food Menu'
+				'label' => 'Simple Dispaly'
 			),
 			'grid'           => array(
-				'label' => 'Grid Styled Menu'
+				'label' => 'Grid Styled'
 			)
 		);
 	}

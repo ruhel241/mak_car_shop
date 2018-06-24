@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Car Shop
+ * @package Car Shop 
  */
 
 namespace MRKCarShop\Classes;
@@ -37,8 +37,8 @@ class ShortCodeClass
 
 	private static function getViewNameByDisplay( $display ) {
 		$displayArray = array(
-			'simple'         => 'simple_food_menu',
-			'center_aligned' => 'center_aligned_menu',
+			'simple'         => 'simple_items',
+			'center'		 => 'center_items',
 			'grid'           => 'grid_items'
 		);
 		$return       = 'default';
