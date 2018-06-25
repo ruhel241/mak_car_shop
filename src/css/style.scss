@@ -1,0 +1,81 @@
+/* common Styles */
+
+
+.car_shop_group {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+
+  .car-item {
+    display: block;
+    overflow: hidden;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: solid 1px silver;
+    border-radius: 5px;
+    &:hover{
+      cursor: pointer;
+      background-color: #EFEFEF; 
+    }
+  }
+
+  .car_image {
+    width: 30%;
+    float: left;
+    margin: 0;
+    padding: 0;
+  
+    img {
+       max-width: 100%;
+    }
+  }
+
+  .car_content {
+    width: 70%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+
+    h4  {
+     padding: 0;
+     margin: 0;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+      font-style: italic;
+      color: #767676;
+    } 
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*grid*/
+.car_grid_item {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.grid_image{
+  float: left;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+
