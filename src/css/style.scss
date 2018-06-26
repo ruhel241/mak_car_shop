@@ -1,11 +1,42 @@
-/* common Styles */
-
-
 .car_shop_group {
   display: block;
   overflow: hidden;
   width: 100%;
   text-align: left;
+// common style start
+   h4,p {
+     padding: 0 !important;
+     margin: 0 !important;
+  }
+  p {
+      font-style: italic;
+      color: #767676;
+  }
+  
+  .car_shop {
+    cursor: pointer;
+  }
+  .price{
+    padding: 5px 10px;
+    display: block;
+    font-size: 12px;
+    background-color: #955181;
+    border-radius: 5px;
+    color: #fff;
+    text-align:center;
+  }
+  .car_details_btn {
+    background-color: #00B4CE;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    display: block;
+    color: #fff;
+  }
+
+ 
+// common style end
+
 
   .car-item {
     display: block;
@@ -15,7 +46,6 @@
     border: solid 1px silver;
     border-radius: 5px;
     &:hover{
-      cursor: pointer;
       background-color: #EFEFEF; 
     }
   }
@@ -25,7 +55,6 @@
     float: left;
     margin: 0;
     padding: 0;
-  
     img {
        max-width: 100%;
     }
@@ -37,45 +66,112 @@
     margin: 0;
     padding: 0;
     padding-left: 15px;
-
-    h4  {
-     padding: 0;
-     margin: 0;
-    }
-    p {
-      padding: 0;
-      margin: 0;
-      font-style: italic;
-      color: #767676;
-    } 
   }
 
-
-
+/* simple car content */
+.simple_car_content{
+  width: 100%;
+  margin: 0;
+  padding: 5px;
 }
-
-
-
-
-
-
-
-
 
 
 
 /*grid*/
-.car_grid_item {
+  .car_shop_grid_1{
+    float: none;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .car_shop_grid_2{
+    float:left;
+    width:50%;
+    margin:0;
+    padding:0;
+    &:nth-child(2n+1){
+      clear: both;
+    }
+    
+  }
+
+  .car_shop_grid_3{
+    float:left;
+    width: 33%;
+    margin:0;
+    padding:0;
+    &:nth-child(3n+1){
+      clear: both;
+    }
+  }
+
+  .car_shop_grid_4 {
+    float:left;
+    width:25%;
+    margin:0;
+    padding:0;
+  }
+
+
+  .car_grid_item {
     display: block;
     overflow: hidden;
-    width: 100%;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    .grid_image {
+      width: 100%;
+      position: relative;
+      padding: 0;
+      margin: 0;
+      float: none;
+      img{
+        max-width:100%;
+      }
+    }
+    .grid_content {
+     
+      .price{
+        margin: 0 auto;
+        // width: 50%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      // .car_details_btn {
+      //   background-color: #ddd;
+      //   border-radius: 5px;
+      //   padding: 5px;
+      //   text-align: center;
+      //   display: block;
+      // }
+      
+    }
+
+  }
+
+
+
+  
+
+
+
+
+
+
+
+
 }
 
-.grid_image{
-  float: left;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-}
+
+
+
+
+
+
+
+
+
 
 
