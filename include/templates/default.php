@@ -1,7 +1,7 @@
-<div class="car_shop_group car_shop_<?php echo $display?>">
+<div class="car_shop_group car_shop_<?php echo $display?>" >
 	<?php foreach ($cars as $car): ?>
 		<?php setup_postdata( $car ); ?>
-		<div class="car_shop car-item">
+		<div class="car_shop car-item car_item_modal" data-car_item_id="<?php echo $car->ID; ?>">
 			<div class="car_image">
 				<?php echo get_the_post_thumbnail( $car, 'medium' );?>
 			</div>

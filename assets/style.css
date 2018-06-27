@@ -18,18 +18,17 @@
   color: #767676;
 }
 
-.car_shop_group .car_shop {
-  cursor: pointer;
-}
-
 .car_shop_group .price {
   padding: 5px 10px;
-  display: block;
   font-size: 12px;
   background-color: #955181;
   border-radius: 5px;
   color: #fff;
   text-align: center;
+}
+
+.car_shop_group .car_shop {
+  cursor: pointer;
 }
 
 .car_shop_group .car_details_btn {
@@ -139,6 +138,107 @@
 .car_shop_group .car_grid_item .grid_content .price {
   margin: 0 auto;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
+  display: table;
+}
+
+/*pop up modal*/
+
+.car_modal_dialog {
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  -webkit-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+}
+
+.car_modal_dialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.car_modal_dialog .modal_item {
+  color: #999999;
+  max-width: 90%;
+  width: 600px;
+  position: relative;
+  margin: 4% auto;
+  border-radius: 10px;
+  background: #fff;
+  height: auto;
+}
+
+.car_modal_dialog .modal_item .car_close {
+  position: absolute;
+  top: -14px;
+  right: -16px;
+  text-transform: lowercase;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 999999999999;
+  color: #fff;
+  background-color: #955181;
+  border-radius: 50%;
+  padding: 4px;
+  height: 28px;
+  width: 28px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 30px;
+  cursor: pointer;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.car_modal_dialog .modal_item .car_close:hover {
+  color: #fff;
+  background-color: red;
+}
+
+.car_modal_dialog .car_header_holder {
+  height: 350px;
+  display: table;
+  background-size: cover;
+  width: 100%;
+  background-color: #955080;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+}
+
+.car_modal_dialog .car_header_holder .car_header_section {
+  padding: 10px 20px;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  z-index: 99999999;
+  height: 100%;
+  text-align: center;
+}
+
+.car_modal_dialog .car_header_holder .car_header_section h3 {
+  color: white;
+  font-weight: bold;
+}
+
+.car_modal_dialog .car_header_holder .car_header_section .price {
+  display: inline-block;
+  padding: 6px;
+  font-size: 12px;
+  background-color: #955181;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .car_modal_dialog .car_header_holder {
+    height: 267px;
+  }
 }
 

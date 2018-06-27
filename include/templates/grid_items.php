@@ -8,7 +8,7 @@ if($per_grid < 3 ){
 ?> 
 <div class="car_shop_group car_shop_<?php echo $display?>">
 	<?php foreach ($cars as $car): ?>
-		<div class="car_shop car_shop_grid_<?php echo $per_grid; ?>">
+		<div class="car_shop car_shop_grid_<?php echo $per_grid; ?> car_item_modal" data-car_item_id="<?php echo $car->ID; ?>">
 			<div class="car_grid_item"> 
 				<div class="grid_image">
 					<?php echo get_the_post_thumbnail($car, $mediaSize); ?>

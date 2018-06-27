@@ -61,8 +61,16 @@ class RLCarShop
 			register_widget( 'MRKCarShop\Classes\WidgetClass' );
 		});
 
-	    add_action( 'wp_enqueue_scripts', array($this, 'enqueueScripts') );
-	    
+	    $modalContentClass = new \MRKCarShop\Classes\ModalContentClass();
+		add_action( 'init', function () use ( $modalContentClass ) {
+			if ( isset( $_GET['car_get_item'] ) && $_GET['car_get_item'] ) {
+				$modalContentClass->getItemModal();
+				die();
+			}
+		});
+
+		add_filter( 'the_content', array( $modalContentClass, 'filterSingleItemContent' ) );
+		add_action( 'wp_enqueue_scripts', array($this, 'enqueueScripts') );
 	}
 
 
@@ -88,12 +96,17 @@ class RLCarShop
 		$postTypeName = \MRKCarShop\Classes\PostTypeClass::$postTypeName;
 
 		wp_register_style('car_shop_style', MRK_Car_Shop_PLUGIN_URL.'assets/style.css', array(), MRK_Car_Shop_PLUGIN_VERSION);
-			wp_enqueue_style('car_shop_style');
-		// if(is_singular() && is_a( $post, 'WP_Post' ) && get_post_meta( $post->ID, '_has_mrk_carshop_shortcode', true )){
-		// 	wp_enqueue_style('car_shop_style');
-		// } else if( is_singular( array($postTypeName) )) {
-		// 	wp_enqueue_style('car_shop_style');
-		// }
+		wp_enqueue_style('car_shop_style');
+		
+
+		wp_register_script('car_shop_js', MRK_Car_Shop_PLUGIN_URL .'assets/app.js', array('jquery'), MRK_Car_Shop_PLUGIN_VERSION );
+		wp_localize_script('car_shop_js','car_shop_vars', 
+			array(
+				'get_car_item_url' => site_url( '?car_get_item=1' )
+			) 
+		);
+		wp_enqueue_script('car_shop_js');
+
 	}
 
 
