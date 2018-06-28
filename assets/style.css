@@ -114,6 +114,10 @@
   padding: 0;
 }
 
+.car_shop_group .car_shop_grid_4:nth-child(4n+1) {
+  clear: both;
+}
+
 .car_shop_group .car_grid_item {
   display: block;
   overflow: hidden;
@@ -240,5 +244,83 @@
   .car_modal_dialog .car_header_holder {
     height: 267px;
   }
+}
+
+.car_modal_dialog .car_modal_content {
+  padding: 20px;
+}
+
+.car_modal_dialog .car_modal_content .car_tax_items {
+  display: inline-block;
+}
+
+.car_modal_dialog .car_modal_content .car_tax_items span {
+  background-color: #C7C7C7;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  font-size: 80%;
+}
+
+.car_modal_dialog .car_modal_content .car_item_content {
+  margin-top: 3px;
+}
+
+.car_modal_dialog .car_inner_content {
+  padding: 20px;
+  border-top: dashed thin;
+  border-color: #C7C7C7;
+}
+
+.car_modal_dialog .car_inner_content .car_inner_title {
+  color: black;
+}
+
+.car_modal_dialog .car_inner_content .main_info {
+  list-style: none;
+}
+
+.car_modal_dialog .car_inner_content .car_inner_Col-6 {
+  width: 47%;
+  display: table-cell;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .car_modal_dialog .car_inner_content .car_inner_Col-6 {
+    width: 100%;
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  .car_modal_dialog .car_inner_content .car_inner_Col-6 ul {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.car_modal_dialog .car_inner_content .car_inner_optional_content .car_inner_optional_title {
+  color: black;
+}
+
+.car_modal_dialog .car_inner_content .car_inner_optional_content .car_optional_list li {
+  list-style: none;
+}
+
+.car_loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(./images/loading-1.gif?5bdc1e48f6baf19491d56629aa0f0d63) no-repeat 50%;
+}
+
+.car_has_modal {
+  overflow: hidden !important;
 }
 

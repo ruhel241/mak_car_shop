@@ -5,6 +5,7 @@ mix.setResourceRoot('./');
 
 // js 
 mix.js('src/js/app.js', 'assets/app.js');
+mix.js('src/js/tinymce-button.js', 'assets/tinymce-button.js');
 
 // sass style
 mix.sass('src/css/style.scss', 'assets/style.css');

@@ -1,4 +1,5 @@
 {
     "/app.js": "/app.js",
-    "/style.css": "/style.css"
+    "/style.css": "/style.css",
+    "/tinymce-button.js": "/tinymce-button.js"
 }

@@ -107,6 +107,9 @@
     width:25%;
     margin:0;
     padding:0;
+    &:nth-child(4n+1){
+      clear: both;
+    }
   }
 
 
@@ -205,7 +208,6 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     position: relative; 
-
     .car_header_section {
       padding: 10px 20px;
       position: relative;
@@ -214,7 +216,6 @@
       z-index: 99999999;
       height: 100%;
       text-align: center;
-
       h3 {
           color: white;
           font-weight: bold;
@@ -236,12 +237,81 @@
 
 
 
+.car_modal_content {
+   padding:20px;
+   .car_tax_items {
+     display:inline-block;
+     span {
+      background-color: #C7C7C7;
+      color: #fff;
+      padding: 3px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-size: 80%;
+    }
+   }
+  .car_item_content{
+     margin-top:3px;
+   }
+}
 
+.car_inner_content {
+  padding:20px;
+  border-top: dashed thin;
+  border-color: #C7C7C7;
+  .car_inner_title{
+    color: black;
+  }
+  .main_info{
+    list-style:none;
+  }
 
+  .car_inner_Col-6 {
+    width: 47%;
+    display: table-cell;
+    padding: 0;
+    margin: 0;
+    @media screen and ( max-width: 767px ) {
+       width: 100%;
+       display:block;
+       padding-bottom:10px;
+       ul{
+          padding:0;
+          margin:0;
+       }
+    }
+    
+  }
 
+  .car_inner_optional_content {
+    .car_inner_optional_title{
+      color:black;
+    }
+    .car_optional_list{
+        li{
+          list-style:none;
+        }
+      }
+  }
+    
+ }
 
 }
 
 
+.car_loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .8) url('./images/loading-1.gif') no-repeat 50%;
+}
+
+.car_has_modal {
+  overflow: hidden !important;
+}
 
 

@@ -23,7 +23,7 @@ class ModalContentClass
 
 
 	public function getItemModal()
-	{
+	{	sleep(1);
 
 		$postId = intval( $_REQUEST['item_id'] );
 		$post =  get_post( $postId );
@@ -31,7 +31,14 @@ class ModalContentClass
 			'postID' => $postId, 
 			'post'	 => $post, 
 			'price'  => get_post_meta($postId, '_ninja_car_price', true), 
-			'subheader' => get_post_meta($postId, '_ninja_car_sub_header', true)
+			'subheader' 	=>  get_post_meta($postId, '_ninja_car_sub_header', true),
+			'reg_year' 		=>  get_post_meta($postId, '_ninja_car_reg_year', true ),
+			'insurance_date'=>  get_post_meta($postId, '_ninja_car_insurance_date', true ),
+			'fuel_type'   	=>  get_post_meta($postId, '_ninja_car_fuel_type', true ),
+			'condition'  	=>  get_post_meta($postId, '_ninja_car_condition', true ),
+			'transmission'	=>  get_post_meta($postId, '_ninja_car_transmission', true ),
+			'optional_items'=>  HelperClass::getItemOptions($postId),
+			'more_informations'	=>  get_post_meta($postId, '_ninja_car_shop_more_info', true )
 		);
 		HelperClass::renderView('modal', $itemData);
 

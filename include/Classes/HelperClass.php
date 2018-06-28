@@ -49,10 +49,32 @@ class HelperClass
 			
 			'exterior_color' => array(
 				'label' => __('Exterior Color', 'mrk_car_shop_textdomain'),
-				'type' => 'text'
+				'type' => 'text',
+				
 			),
 		);
 		return apply_filters('ninja_car_shop_option_info', $items);
+	}
+
+
+
+	public static function getItemOptions($postId) {
+		
+		$option = get_post_meta($postId, '_ninja_car_optional_items', true);
+		if(!is_array($option)) {
+			return false;
+		}
+		
+		$optionItems = self::getOptionInfoItems();
+		$formattedOption = array();
+		
+		foreach ($option as $optionIndex => $optionValue) {
+			if(isset($optionItems[$optionIndex]) && $optionValue != '') {
+				$formattedOption[$optionItems[$optionIndex]['label']] = $optionValue;
+			}
+		}
+		return $formattedOption;
+
 	}
 
 
@@ -69,8 +91,6 @@ class HelperClass
 		}
 		return $formatted;
 	}
-
-
 
 
 	public static function getCarDisplayTypes() {

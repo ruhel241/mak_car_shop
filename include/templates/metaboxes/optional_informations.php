@@ -8,6 +8,7 @@
             <input type="<?php echo @$box['type']; ?>" name="_ninja_car_optional_items[<?php echo $box_key; ?>]" class="regular-text"
                    id="_ninja_car_<?php echo $box_key;?>"
                    value="<?php echo @$optional_items[ $box_key ]; ?>">
+                   
         </div>
     </div>
   <?php endforeach; ?> 
