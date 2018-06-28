@@ -284,6 +284,11 @@
 .car_modal_dialog .car_inner_content .car_inner_Col-6 {
   width: 47%;
   display: table-cell;
+  padding: 0px 20px 0px 0px;
+  margin: 0;
+}
+
+.car_modal_dialog .car_inner_content .car_inner_Col-6 ul {
   padding: 0;
   margin: 0;
 }
@@ -293,11 +298,6 @@
     width: 100%;
     display: block;
     padding-bottom: 10px;
-  }
-
-  .car_modal_dialog .car_inner_content .car_inner_Col-6 ul {
-    padding: 0;
-    margin: 0;
   }
 }
 

@@ -50,7 +50,6 @@ const carShopMainApp = {
 	initModalClick(){
 		var that = this;
 		jQuery('.car_item_modal').on('click',function (e) {
-			console.log("hi ruhel khan");
 			e.preventDefault();
 			jQuery('html,body').addClass('car_has_modal');
 			let itemId = jQuery(this).attr('data-car_item_id');

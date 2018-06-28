@@ -68,7 +68,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+__webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
@@ -115,7 +116,6 @@ var carShopMainApp = {
 	initModalClick: function initModalClick() {
 		var that = this;
 		jQuery('.car_item_modal').on('click', function (e) {
-			console.log("hi ruhel khan");
 			e.preventDefault();
 			jQuery('html,body').addClass('car_has_modal');
 			var itemId = jQuery(this).attr('data-car_item_id');
@@ -146,6 +146,12 @@ carShopMainApp.documentReady();
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

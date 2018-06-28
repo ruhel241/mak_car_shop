@@ -64,9 +64,9 @@
            
             <div class="car_inner_Col-6"> 
                 <div class="mainInfoContent">
-                    <h1 class="car_inner_title">
+                    <h4 class="car_inner_title">
                         <?php _e( 'Details', 'mrk_car_shop_textdomain' ); ?>
-                    </h1>
+                    </h4>
                     <div class="car_main_info_lists">
                         <ul class="main_info">
                             <?php if($reg_year):?>
