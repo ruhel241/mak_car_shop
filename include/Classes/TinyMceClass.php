@@ -33,8 +33,7 @@ class TinyMceClass
 	{
 		
 		wp_enqueue_style( 'car_shop_mce_css', MRK_Car_Shop_PLUGIN_URL . 'assets/tinymce-button.css' );
-		wp_enqueue_script( 'car_moonjs', MRK_Car_Shop_PLUGIN_URL . 'assets/libs/moon.min.js', array( 'jquery' ),
-			'0.11.0' );
+		wp_enqueue_script( 'car_moon_js', MRK_Car_Shop_PLUGIN_URL . 'assets/libs/moon.min.js', array( 'jquery' ),'0.11.0' );
 
 		$plugin_array['car_shop_mce_class'] = MRK_Car_Shop_PLUGIN_URL . 'assets/tinymce-button.js';
 		add_action( 'admin_footer', array( self::class, 'localizeVars' ) );

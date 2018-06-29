@@ -50,3 +50,45 @@ div#car_shop_pop_up .car_shop_pop_container .car_shop_header span.car_shop_pop_c
   padding-right: 10px;
 }
 
+div#car_shop_pop_up .car_shop_pop_body {
+  padding: 20px;
+  border-bottom: solid 1px #ddd;
+  margin-bottom: 26px;
+}
+
+div#car_shop_pop_up .car_shop_pop_body .car_options_group {
+  border-bottom: solid 1px #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+div#car_shop_pop_up .car_shop_pop_body .car_options_group:last-of-type {
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+}
+
+div#car_shop_pop_up .car_shop_pop_body .car_options_group .car_form_group > label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+div#car_shop_pop_up .car_shop_pop_body .car_options_group .car_form_group .car_inline_form_items {
+  padding-bottom: 15px;
+}
+
+div#car_shop_pop_up .car_pop_footer .car_insert_button {
+  float: right;
+  position: relative;
+  bottom: 13px;
+  right: 25px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #428bca;
+  color: white;
+  cursor: pointer;
+  border-color: #357ebd;
+}
+

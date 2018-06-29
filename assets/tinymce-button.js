@@ -79,10 +79,10 @@ module.exports = __webpack_require__(5);
 (function () {
     var CarShopModalApp = {
         insertDom: function insertDom() {
-            jQuery('body').append('\n            <div style="display: none;" class="car_shop_shortcode_builder_pop_up" id="car_shop_pop_up">\n                <div class="car_shop_pop_shadow"></div>\n                \n                    <div id="car_shop_moon" class="car_shop_pop_container">\n                        <div class="car_shop_header">\n                            Insert Car Shop Shortcode\n                            <span class="car_shop_pop_close">X</span>\n                        </div>\n                    </div>\n\n\n                </div>\n            </div>\n        ');
+            jQuery('body').append('\n            <div style="display: none;" class="car_shop_shortcode_builder_pop_up" id="car_shop_pop_up">\n                <div class="car_shop_pop_shadow"></div>\n                \n                    <div id="car_shop_moon" class="car_shop_pop_container">\n                        <div class="car_shop_header">\n                            Insert Car Shop Shortcode\n                            <span class="car_shop_pop_close">X</span>\n                        </div>\n\n                        <div class="car_shop_pop_body"> \n\n                            <div class="car_options_group">\n                                <div class="car_form_group">\n                                    <label> Car Shop Display Type </label>\n                                    <div class="car_inline_form_items">\n                                        <label m-for="car_display, car_displaykey in car_displays">\n                                            <input name="display_type" m-model="shortCode.car_display" m-literal:value="car_displaykey" type="radio"> {{ car_display.label }}\n                                        </label>\n                                    </div>\n                                </div>\n                                <div class="car_form_group">\n                                    <label m-if="shortCode.car_display == \'grid\'">\n                                        Item Per Grid\n                                        <input type="number" max="3" min="1" m-model="shortCode.per_grid" />\n                                    </label>\n                                </div>\n                            </div> \n\n                            <div class="car_options_group">\n                                <div class="car_form_group">\n                                    <label> Car Brand Type </label>\n                                    <div class="car_inline_form_items">\n                                          <label>\n                                            <input m-model="shortCode.all_car_brand" m-literal:value="true" name="car_shop_brand_type"  type="radio"> All \n                                          </label>\n                                          <label>\n                                             <input m-model="shortCode.all_car_brand" m-literal:value="false" name="car_shop_brand_type"  type="radio"> Selected Brands\n                                          </label>\n                                    </div>\n                                </div>\n                                <div m-if="shortCode.all_car_brand == false" class="car_form_group">\n                                    <label> Select Brand Types that you want to show</label>\n                                    <div class="car_inline_form_items">\n                                        <label m-for="car_brand, car_brandKey in car_brands">\n                                            <input name="car_shop_brand_type" m-on:change="changeData(car_brandKey, \'selectedCarBrand\')"  type="checkbox"> {{ car_brand }} \n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n\n                            <div class="car_options_group">\n                                <div class="car_form_group">\n                                    <label> Car Model Type </label>\n                                    <div class="car_inline_form_items">\n                                          <label>\n                                            <input m-model="shortCode.all_car_model" m-literal:value="true" name="car_shop_model_type"  type="radio"> All \n                                          </label>\n                                          <label>\n                                             <input m-model="shortCode.all_car_model" m-literal:value="false" name="car_shop_model_type"  type="radio"> Selected Models \n                                          </label>\n                                    </div>\n                                </div>\n                                <div m-if="shortCode.all_car_model == false" class="car_form_group">\n                                    <label> Select Models Types that you want to show</label>\n                                    <div class="car_inline_form_items">\n                                        <label m-for="car_model, car_modelKey in car_models">\n                                            <input name="car_shop_model_type" m-on:change="changeData(car_modelKey, \'selectedCarModel\')"  type="checkbox"> {{ car_model }} \n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n\n                            <div class="car_options_group">\n                                <div class="car_form_group">\n                                    <label> Car Made Type </label>\n                                    <div class="car_inline_form_items">\n                                          <label>\n                                            <input m-model="shortCode.all_car_made" m-literal:value="true" name="car_shop_made_type"  type="radio"> All \n                                          </label>\n                                          <label>\n                                             <input m-model="shortCode.all_car_made" m-literal:value="false" name="car_shop_made_type"  type="radio"> Selected Mades \n                                          </label>\n                                    </div>\n                                </div>\n                                <div m-if="shortCode.all_car_made == false" class="car_form_group">\n                                    <label> Select Mades Types that you want to show</label>\n                                    <div class="car_inline_form_items">\n                                        <label m-for="car_made, car_madeKey in car_mades">\n                                            <input name="car_shop_made_type" m-on:change="changeData(car_madeKey, \'selectedCarMade\')"  type="checkbox"> {{ car_made }} \n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n\n                         </div>\n                        \n                        <div class="car_pop_footer">\n                            <button m-on:click="car_insertSortCode"  class="car_insert_button" id=""> Insert Shortcode </button>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n        ');
         },
         showModal: function showModal(editor) {
-            window.currentFnEditor = editor;
+            window.currentCarEditor = editor;
             jQuery('#car_shop_pop_up').show();
         },
         closeModal: function closeModal() {
@@ -93,17 +93,20 @@ module.exports = __webpack_require__(5);
             window.moonApp2 = new Moon({
                 el: "#carShop_moon",
                 data: {
-                    fn_displays: window.fn_MceVars.fndisplayTypes,
-                    fn_categories: window.fn_MceVars.fnCategories,
-                    fn_tags: window.fn_MceVars.fnTags,
+                    car_displays: window.car_ShopMceVars.displayTypes,
+                    car_brands: window.car_ShopMceVars.brandTypes,
+                    car_models: window.car_ShopMceVars.modelTypes,
+                    car_mades: window.car_ShopMceVars.madeTypes,
                     myData: [1, 2],
                     shortCode: {
-                        fn_display: 'default',
+                        car_displays: 'default',
                         per_grid: 2,
-                        all_faq_cats: true,
-                        selectedFaqCats: [],
-                        all_faq_tags: true,
-                        selectedFaqTags: []
+                        all_car_brand: true,
+                        selectedCarBrand: [],
+                        all_car_model: true,
+                        selectedCarModel: [],
+                        all_car_made: true,
+                        selectedCarMade: []
                     }
                 },
 
@@ -118,23 +121,27 @@ module.exports = __webpack_require__(5);
                             prevalues.splice(prevalues.indexOf(key), 1);
                         }
                     },
-                    fn_insertSortCode: function fn_insertSortCode() {
+                    car_insertSortCode: function car_insertSortCode() {
                         var shortCode = this.get('shortCode');
-                        var shortCodeParts = ['mrk_carshop', "display='" + shortCode.fn_display + "'"];
+                        var shortCodeParts = ['mrk_carshop', "display='" + shortCode.car_displays + "'"];
 
-                        if (shortCode.fn_display == 'grid') {
+                        if (shortCode.car_displays == 'grid') {
                             shortCodeParts.push('per_grid=' + shortCode.per_grid);
                         }
 
-                        if (!shortCode.all_faq_cats && shortCode.selectedFaqCats.length) {
-                            shortCodeParts.push("faq_cat='" + shortCode.selectedFaqCats.toLocaleString() + "'");
+                        if (!shortCode.all_car_brand && shortCode.selectedCarBrand.length) {
+                            shortCodeParts.push("brand='" + shortCode.selectedCarBrand.toLocaleString() + "'");
                         }
-                        if (!shortCode.all_faq_tags && shortCode.selectedFaqTags.length) {
-                            shortCodeParts.push("faq_tag='" + shortCode.selectedFaqTags.toLocaleString() + "'");
+                        if (!shortCode.all_car_model && shortCode.selectedCarModel.length) {
+                            shortCodeParts.push("model='" + shortCode.selectedCarModel.toLocaleString() + "'");
+                        }
+
+                        if (!shortCode.all_car_made && shortCode.selectedCarMade.length) {
+                            shortCodeParts.push("made='" + shortCode.selectedCarMade.toLocaleString() + "'");
                         }
 
                         var shortcodeString = '[' + shortCodeParts.join(' ') + ']';
-                        currentFnEditor.insertContent(shortcodeString);
+                        currentCarEditor.insertContent(shortcodeString);
                         mainApp.closeModal();
                     }
                 }

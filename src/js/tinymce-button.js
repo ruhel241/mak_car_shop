@@ -1,4 +1,4 @@
-(function () {
+(function () { 
     const CarShopModalApp = {
         insertDom() { 
             jQuery('body').append(`
@@ -10,15 +10,105 @@
                             Insert Car Shop Shortcode
                             <span class="car_shop_pop_close">X</span>
                         </div>
+
+                        <div class="car_shop_pop_body"> 
+
+                            <div class="car_options_group">
+                                <div class="car_form_group">
+                                    <label> Car Shop Display Type </label>
+                                    <div class="car_inline_form_items">
+                                        <label m-for="car_display, car_displaykey in car_displays">
+                                            <input name="display_type" m-model="shortCode.car_display" m-literal:value="car_displaykey" type="radio"> {{ car_display.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="car_form_group">
+                                    <label m-if="shortCode.car_display == 'grid'">
+                                        Item Per Grid
+                                        <input type="number" max="3" min="1" m-model="shortCode.per_grid" />
+                                    </label>
+                                </div>
+                            </div> 
+
+                            <div class="car_options_group">
+                                <div class="car_form_group">
+                                    <label> Car Brand Type </label>
+                                    <div class="car_inline_form_items">
+                                          <label>
+                                            <input m-model="shortCode.all_car_brand" m-literal:value="true" name="car_shop_brand_type"  type="radio"> All 
+                                          </label>
+                                          <label>
+                                             <input m-model="shortCode.all_car_brand" m-literal:value="false" name="car_shop_brand_type"  type="radio"> Selected Brands
+                                          </label>
+                                    </div>
+                                </div>
+                                <div m-if="shortCode.all_car_brand == false" class="car_form_group">
+                                    <label> Select Brand Types that you want to show</label>
+                                    <div class="car_inline_form_items">
+                                        <label m-for="car_brand, car_brandKey in car_brands">
+                                            <input name="car_shop_brand_type" m-on:change="changeData(car_brandKey, 'selectedCarBrand')"  type="checkbox"> {{ car_brand }} 
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="car_options_group">
+                                <div class="car_form_group">
+                                    <label> Car Model Type </label>
+                                    <div class="car_inline_form_items">
+                                          <label>
+                                            <input m-model="shortCode.all_car_model" m-literal:value="true" name="car_shop_model_type"  type="radio"> All 
+                                          </label>
+                                          <label>
+                                             <input m-model="shortCode.all_car_model" m-literal:value="false" name="car_shop_model_type"  type="radio"> Selected Models 
+                                          </label>
+                                    </div>
+                                </div>
+                                <div m-if="shortCode.all_car_model == false" class="car_form_group">
+                                    <label> Select Models Types that you want to show</label>
+                                    <div class="car_inline_form_items">
+                                        <label m-for="car_model, car_modelKey in car_models">
+                                            <input name="car_shop_model_type" m-on:change="changeData(car_modelKey, 'selectedCarModel')"  type="checkbox"> {{ car_model }} 
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="car_options_group">
+                                <div class="car_form_group">
+                                    <label> Car Made Type </label>
+                                    <div class="car_inline_form_items">
+                                          <label>
+                                            <input m-model="shortCode.all_car_made" m-literal:value="true" name="car_shop_made_type"  type="radio"> All 
+                                          </label>
+                                          <label>
+                                             <input m-model="shortCode.all_car_made" m-literal:value="false" name="car_shop_made_type"  type="radio"> Selected Mades 
+                                          </label>
+                                    </div>
+                                </div>
+                                <div m-if="shortCode.all_car_made == false" class="car_form_group">
+                                    <label> Select Mades Types that you want to show</label>
+                                    <div class="car_inline_form_items">
+                                        <label m-for="car_made, car_madeKey in car_mades">
+                                            <input name="car_shop_made_type" m-on:change="changeData(car_madeKey, 'selectedCarMade')"  type="checkbox"> {{ car_made }} 
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                         </div>
+                        
+                        <div class="car_pop_footer">
+                            <button m-on:click="car_insertSortCode"  class="car_insert_button" id=""> Insert Shortcode </button>
+                        </div>
+
                     </div>
-
-
                 </div>
             </div>
         `);
         },
         showModal(editor) {
-            window.currentFnEditor = editor;
+            window.currentCarEditor = editor;
             jQuery('#car_shop_pop_up').show();
         },
         closeModal() {
@@ -30,17 +120,20 @@
             window.moonApp2 = new Moon({
                 el: "#carShop_moon",
                 data: {
-                    fn_displays: window.fn_MceVars.fndisplayTypes,
-                    fn_categories: window.fn_MceVars.fnCategories,
-                    fn_tags: window.fn_MceVars.fnTags,
+                    car_displays: window.car_ShopMceVars.displayTypes,
+                    car_brands: window.car_ShopMceVars.brandTypes,
+                    car_models: window.car_ShopMceVars.modelTypes,
+                    car_mades: window.car_ShopMceVars.madeTypes,
                     myData: [1, 2],
                     shortCode: {
-                        fn_display: 'default',
+                        car_displays: 'default',
                         per_grid: 2,
-                        all_faq_cats: true,
-                        selectedFaqCats: [],
-                        all_faq_tags: true,
-                        selectedFaqTags: [],
+                        all_car_brand: true,
+                        selectedCarBrand: [],
+                        all_car_model: true,
+                        selectedCarModel: [],
+                        all_car_made: true,
+                        selectedCarMade: [],
                     }
                 },
                 
@@ -58,26 +151,30 @@
                         }
                     },
 
-                    fn_insertSortCode() {
+                    car_insertSortCode() {
                         let shortCode = this.get('shortCode');
                         let shortCodeParts = [
                             'mrk_carshop',
-                            "display='" + shortCode.fn_display + "'"
+                            "display='" + shortCode.car_displays + "'"
                         ];
                         
-                        if(shortCode.fn_display == 'grid') {
+                        if(shortCode.car_displays == 'grid') {
                             shortCodeParts.push('per_grid='+shortCode.per_grid);
                         }
                         
-                        if(!shortCode.all_faq_cats && shortCode.selectedFaqCats.length) {
-                            shortCodeParts.push( "faq_cat='"+ shortCode.selectedFaqCats.toLocaleString()+"'");
+                        if(!shortCode.all_car_brand && shortCode.selectedCarBrand.length) {
+                            shortCodeParts.push( "brand='"+ shortCode.selectedCarBrand.toLocaleString()+"'");
                         }
-                        if(!shortCode.all_faq_tags && shortCode.selectedFaqTags.length) {
-                            shortCodeParts.push( "faq_tag='"+ shortCode.selectedFaqTags.toLocaleString()+"'");
+                        if(!shortCode.all_car_model && shortCode.selectedCarModel.length) {
+                            shortCodeParts.push( "model='"+ shortCode.selectedCarModel.toLocaleString()+"'");
+                        }
+
+                        if(!shortCode.all_car_made && shortCode.selectedCarMade.length) {
+                            shortCodeParts.push( "made='"+ shortCode.selectedCarMade.toLocaleString()+"'");
                         }
                         
                         let shortcodeString = '['+shortCodeParts.join(' ')+']';
-                        currentFnEditor.insertContent(shortcodeString);
+                        currentCarEditor.insertContent(shortcodeString);
                         mainApp.closeModal();
                     }
 

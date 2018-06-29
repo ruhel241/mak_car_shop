@@ -51,4 +51,51 @@ div#car_shop_pop_up {
 
 
 
+  .car_shop_pop_body {
+      padding: 20px;
+      border-bottom: solid 1px #ddd;
+      margin-bottom: 26px;
+      .car_options_group{
+          border-bottom: solid 1px #ddd;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+          &:last-of-type {
+            border-bottom: none;
+                  padding: 0;
+                  margin: 0;
+        }
+        .car_form_group {
+           > label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+          }
+        .car_inline_form_items {
+            padding-bottom: 15px;
+          }
+        }
+    }
+  }
+
+
+  .car_pop_footer{
+    .car_insert_button{
+      float: right;
+        position: relative;
+        bottom: 13px;
+        right: 25px;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: #428bca;
+        color: white;
+      cursor: pointer;
+        border-color: #357ebd;
+    }
+  }
+
+
+
+
+
 }
