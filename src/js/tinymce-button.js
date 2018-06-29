@@ -18,12 +18,12 @@
                                     <label> Car Shop Display Type </label>
                                     <div class="car_inline_form_items">
                                         <label m-for="car_display, car_displaykey in car_displays">
-                                            <input name="display_type" m-model="shortCode.car_display" m-literal:value="car_displaykey" type="radio"> {{ car_display.label }}
+                                            <input name="display_type" m-model="shortCode.display" m-literal:value="car_displaykey" type="radio"> {{ car_display.label }}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="car_form_group">
-                                    <label m-if="shortCode.car_display == 'grid'">
+                                    <label m-if="shortCode.display == 'grid'">
                                         Item Per Grid
                                         <input type="number" max="3" min="1" m-model="shortCode.per_grid" />
                                     </label>
@@ -118,7 +118,7 @@
         initShortCodeBuilder() {
             let mainApp = this;
             window.moonApp2 = new Moon({
-                el: "#carShop_moon",
+                el: "#car_shop_moon",
                 data: {
                     car_displays: window.car_ShopMceVars.displayTypes,
                     car_brands: window.car_ShopMceVars.brandTypes,
@@ -126,7 +126,7 @@
                     car_mades: window.car_ShopMceVars.madeTypes,
                     myData: [1, 2],
                     shortCode: {
-                        car_displays: 'default',
+                        display: 'default',
                         per_grid: 2,
                         all_car_brand: true,
                         selectedCarBrand: [],
@@ -134,11 +134,12 @@
                         selectedCarModel: [],
                         all_car_made: true,
                         selectedCarMade: [],
-                    }
+                    },
                 },
                 
 
-                computed: {
+                created() {
+                    
                 },
 
                 methods: { 
@@ -155,10 +156,10 @@
                         let shortCode = this.get('shortCode');
                         let shortCodeParts = [
                             'mrk_carshop',
-                            "display='" + shortCode.car_displays + "'"
+                            "display='" + shortCode.display + "'"
                         ];
                         
-                        if(shortCode.car_displays == 'grid') {
+                        if(shortCode.display == 'grid') {
                             shortCodeParts.push('per_grid='+shortCode.per_grid);
                         }
                         

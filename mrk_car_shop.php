@@ -69,7 +69,7 @@ class RLCarShop
 			}
 		});
 
-		add_filter( 'the_content', array( $modalContentClass, 'filterSingleItemContent' ) );
+		add_filter( 'the_content', array( $modalContentClass, 'filterSingleCarContent' ) );
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueueScripts') );
 	}
 

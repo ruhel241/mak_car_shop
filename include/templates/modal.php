@@ -142,7 +142,7 @@
                 <h4 class="car_inner_title">
                     <?php _e( 'More Informations', 'mrk_car_shop_textdomain' ); ?>
                 </h4>
-                <div class="car_optional_list">
+                <div class="car_more_info_content">
                     <?php echo do_shortcode($more_informations); ?>
                 </div>
             </div>
