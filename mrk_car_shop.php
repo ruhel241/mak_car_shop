@@ -107,6 +107,9 @@ class RLCarShop
 		);
 		wp_enqueue_script('car_shop_js');
 
+		wp_register_script('car_custom_js', MRK_Car_Shop_PLUGIN_URL . 'assets/custom.js', array('jquery'), MRK_Car_Shop_PLUGIN_VERSION );
+		wp_enqueue_script('car_custom_js');
+
 	}
 
 

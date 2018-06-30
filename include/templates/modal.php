@@ -58,15 +58,13 @@
         </div>
       <?php do_action('car_shop_after_modal_content', $post); ?>
 
-
-
         <div class="car_inner_content">
-           
             <div class="car_inner_Col-6"> 
                 <div class="mainInfoContent">
-                    <h4 class="car_inner_title">
+                   <?php if($reg_year):?> <h4 class="car_inner_title">
                         <?php _e( 'Details', 'mrk_car_shop_textdomain' ); ?>
                     </h4>
+                <?php endif; ?>
                     <div class="car_main_info_lists">
                         <ul class="main_info">
                             <?php if($reg_year):?>

@@ -11,7 +11,7 @@ if($per_grid < 3 ){
 		<div class="car_shop car_shop_grid_<?php echo $per_grid; ?> car_item_modal" data-car_item_id="<?php echo $car->ID; ?>">
 			<div class="car_grid_item"> 
 				<div class="grid_image">
-					<?php echo get_the_post_thumbnail($car, $mediaSize); ?>
+					<?php echo get_the_post_thumbnail($car, $mediaSize, array('class' => 'grid_image_item')); ?>
 				</div>
 				<div class="grid_content">
 					<h4 class="grid_title"> <?php echo $car->post_title; ?></h4>
